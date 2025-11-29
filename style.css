@@ -8,15 +8,16 @@ html {
   background-color: #0d47a1;
   overflow: hidden;
   border-radius: 4px;
-  padding: 0.6rem 0;
+  padding: 0.8rem 0;
   position: relative;
+  width: 100%;
 }
 #circular-ticker {
   white-space: nowrap;
   display: inline-block;
-  animation: tickerScroll 60s linear infinite;
+  animation: tickerScroll 25s linear infinite;
   color: #fff;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 #circular-ticker:hover {
   animation-play-state: paused;
