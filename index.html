@@ -91,16 +91,14 @@
   <script>
     async function loadCirculars() {
       try {
-        const res = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://www.bis.gov.in/index.php/circulars/'));
-        const data = await res.json();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(data.contents, 'text/html');
-        const circulars = [...doc.querySelectorAll('a')].filter(a => a.href.includes('.pdf')).slice(0, 10);
+        const res = await fetch('/api/circulars');
+        const circulars = await res.json();
         let html = '';
         circulars.forEach((c, i) => {
-          html += `<div class='circular-card'><a href='${c.href}' target='_blank'>${c.textContent.trim()}</a>${i < 3 ? `<span class='new-badge'>NEW</span>` : ''}</div>`;
+          html += `<span class="circular-item"><a href="${c.link}" target="_blank">${c.title}</a>${i < 3 ? '<span class="new-badge">NEW</span>' : ''}</span>`;
         });
-        document.getElementById('circular-list').innerHTML = html || 'No circulars found.';
+        document.getElementById('circular-list').innerHTML =
+          `<div class="ticker">${html}</div>`;
       } catch (e) {
         document.getElementById('circular-list').innerHTML = 'Unable to load circulars. Please check the BIS site.';
       }
