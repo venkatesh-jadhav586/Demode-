@@ -97,14 +97,20 @@
       try {
         const res = await fetch('/api/circulars');
         const circulars = await res.json();
+
         let html = '';
         circulars.forEach((c, i) => {
-          html += `<span class="circular-item"><a href="${c.link}" target="_blank">${c.title}</a>${i < 3 ? '<span class="new-badge">NEW</span>' : ''}</span>`;
+          html += `<span class="circular-item">
+            <a href="${c.link}" target="_blank" style="color:white;text-decoration:none;">
+              ${c.title}
+            </a>${i < 3 ? '<span class="new-badge">NEW</span>' : ''}
+          </span>`;
         });
-        document.getElementById('circular-ticker').innerHTML =
-          `<div class="ticker">${html}</div>`;
+
+        document.getElementById('circular-ticker').innerHTML = html;
       } catch (e) {
-        document.getElementById('circular-ticker').innerHTML = 'Unable to load circulars. Please check the BIS site.';
+        document.getElementById('circular-ticker').innerHTML =
+          'Unable to load circulars. Please check the BIS site.';
       }
     }
     loadCirculars();
