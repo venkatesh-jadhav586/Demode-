@@ -3,7 +3,6 @@ html {
   width: 100%;
 }
 
-/* Ticker layout */
 #ticker-wrapper {
   background-color: #0d47a1;
   overflow: hidden;
@@ -12,33 +11,52 @@ html {
   position: relative;
   width: 100%;
 }
+
 #circular-ticker {
+  display: flex;
   white-space: nowrap;
-  display: inline-block;
-  animation: tickerScroll 25s linear infinite;
+  animation: tickerScroll 40s linear infinite;
   color: #fff;
   font-size: 1rem;
 }
+
 #circular-ticker:hover {
   animation-play-state: paused;
 }
+
 @keyframes tickerScroll {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
+
 .circular-item {
-  display: inline-block;
-  margin: 0 2rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 2.5rem;
+  flex-shrink: 0;
 }
+
+.circular-item a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.circular-item a:hover {
+  text-decoration: underline;
+}
+
 .new-badge {
   background-color: #ffeb3b;
   color: #000;
   font-size: 0.7rem;
-  padding: 0.15rem 0.45rem;
+  font-weight: bold;
+  padding: 0.2rem 0.5rem;
   border-radius: 3px;
   margin-left: 0.5rem;
-  animation: blink 1.5s infinite;
+  animation: blink 1s infinite;
 }
+
 @keyframes blink {
-  50% { opacity: 0.4; }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
