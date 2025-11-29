@@ -27,7 +27,7 @@ const fallbackCirculars = [
 
 app.get("/api/circulars", async (req, res) => {
   try {
-    const bisURL = "https://www.bis.gov.in/index.php/circulars/";
+    const bisURL = "https://www.bis.gov.in/whats-new-notifications/";
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 8000);
     
@@ -46,7 +46,7 @@ app.get("/api/circulars", async (req, res) => {
     const circulars = matches.slice(0, 10).map((m) => ({
       title: m[2].trim(),
       link: m[1].startsWith("http") ? m[1] : `https://www.bis.gov.in${m[1]}`
-    })).filter(c => c.title.length > 3);
+    })).filter(c => c.title.length > 3 && /[a-zA-Z]/.test(c.title));
     
     if (circulars.length >= 5) {
       res.json(circulars);
