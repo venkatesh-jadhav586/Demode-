@@ -2,3 +2,33 @@ html {
   height: 100%;
   width: 100%;
 }
+
+.ticker {
+  background-color: #0d47a1;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  display: flex;
+  animation: scroll 60s linear infinite;
+}
+.ticker:hover { animation-play-state: paused; }
+.circular-item {
+  display: inline-block;
+  padding: 0 2rem;
+}
+@keyframes scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+.new-badge {
+  background-color: #ffeb3b;
+  color: #000;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  margin-left: 0.5rem;
+  animation: blink 1.5s infinite;
+}
+@keyframes blink {
+  50% { opacity: 0.4; }
+}
