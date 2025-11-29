@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pradeep Patil Consultancy | Bureau of Indian Standards</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <style>
+    body { background-color: #f5f7fa; color: #333; font-family: 'Segoe UI', sans-serif; }
+    nav, footer { background-color: #0d47a1; color: white; }
+    nav a, footer a { color: #bbdefb; }
+    .hero { background: url('https://images.unsplash.com/photo-1565373675517-03b0fdd8c37e?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat; color: white; text-align: center; padding: 8rem 2rem; }
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.3rem; max-width: 700px; margin: 0 auto 2rem; }
+    .hero a.button { background-color: #1976d2; border: none; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; }
+    .section { padding: 4rem 0; }
+    .section h2 { color: #0d47a1; margin-bottom: 1rem; }
+    .circular-card { background: white; border-radius: 8px; padding: 1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.1); margin-bottom: 1rem; }
+    .new-badge { background-color: #1976d2; color: white; font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 3px; margin-left: 0.5rem; }
+    .view-all-btn { display: inline-block; margin-top: 1rem; background-color: #0d47a1; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; }
+    figure img { border-radius: 8px; }
+    footer { text-align: center; padding: 2rem 0; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <nav class="container-fluid">
+    <ul><li><strong>Pradeep Patil Consultancy</strong></li></ul>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#circulars">BIS Circulars</a></li>
+      <li><a href="#feedback">Feedback</a></li>
+      <li><a href="#contact" role="button">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <h1>Pradeep Patil Consultancy</h1>
+    <p>Helping industries achieve Bureau of Indian Standards (BIS) compliance with confidence.</p>
+    <a href="#contact" class="button">Get in Touch</a>
+  </header>
+
+  <main class="container">
+    <section id="about" class="section">
+      <h2>About Us</h2>
+      <p>We provide expert consultancy services to help businesses meet Bureau of Indian Standards (BIS) certification requirements. Our team ensures a smooth certification process with comprehensive support for documentation, testing, and compliance.</p>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80" alt="Consultants discussing strategy">
+        <figcaption><a href="https://unsplash.com" target="_blank">Image from Unsplash</a></figcaption>
+      </figure>
+    </section>
+
+    <section id="services" class="section">
+      <h2>Our Services</h2>
+      <div class="grid">
+        <article><h3>BIS Certification Consulting</h3><p>Expert guidance through every stage of the BIS certification process.</p></article>
+        <article><h3>Documentation & Compliance</h3><p>We prepare all necessary documentation to meet BIS standards efficiently.</p></article>
+        <article><h3>Testing Coordination</h3><p>Assistance with laboratory testing and certification requirements.</p></article>
+        <article><h3>Quality Audits</h3><p>In-depth audits to ensure your business maintains compliance.</p></article>
+      </div>
+    </section>
+
+    <section id="circulars" class="section">
+      <h2>BIS Circulars & Updates</h2>
+      <div id="circular-list">Loading latest circulars...</div>
+      <a class="view-all-btn" href="https://www.bis.gov.in/index.php/circulars/" target="_blank">View All Circulars on BIS Website</a>
+    </section>
+
+    <section id="feedback" class="section">
+      <h2>Customer Feedback</h2>
+      <blockquote>“Pradeep Patil Consultancy made our BIS certification seamless and stress-free. Highly recommended!” – R.K. Industries</blockquote>
+      <blockquote>“Their professionalism and attention to detail were impressive. Excellent service!” – Suresh Trading Co.</blockquote>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact Us</h2>
+      <p>We’re here to help your business achieve BIS certification success. Reach out using the form below or email us directly at <a href="mailto:info@pradeeppatilconsultancy.com">info@pradeeppatilconsultancy.com</a>.</p>
+      <form class="grid">
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" onclick="event.preventDefault()">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <small>© 2025 Pradeep Patil Consultancy • <a href="#about">About</a> • <a href="#services">Services</a> • <a href="#circulars">BIS Circulars</a> • <a href="#contact">Contact</a></small>
+  </footer>
+
+  <script>
+    async function loadCirculars() {
+      try {
+        const res = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://www.bis.gov.in/index.php/circulars/'));
+        const data = await res.json();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data.contents, 'text/html');
+        const circulars = [...doc.querySelectorAll('a')].filter(a => a.href.includes('.pdf')).slice(0, 10);
+        let html = '';
+        circulars.forEach((c, i) => {
+          html += `<div class='circular-card'><a href='${c.href}' target='_blank'>${c.textContent.trim()}</a>${i < 3 ? `<span class='new-badge'>NEW</span>` : ''}</div>`;
+        });
+        document.getElementById('circular-list').innerHTML = html || 'No circulars found.';
+      } catch (e) {
+        document.getElementById('circular-list').innerHTML = 'Unable to load circulars. Please check the BIS site.';
+      }
+    }
+    loadCirculars();
+  </script>
+</body>
+</html>
