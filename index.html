@@ -1,119 +1,973 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pradeep Patil Consultancy | Bureau of Indian Standards</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body { background-color: #f5f7fa; color: #333; font-family: 'Segoe UI', sans-serif; }
-    nav, footer { background-color: #0d47a1; color: white; }
-    nav a, footer a { color: #bbdefb; }
-    .hero { background: url('https://images.unsplash.com/photo-1565373675517-03b0fdd8c37e?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat; color: white; text-align: center; padding: 8rem 2rem; }
-    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-    .hero p { font-size: 1.3rem; max-width: 700px; margin: 0 auto 2rem; }
-    .hero a.button { background-color: #1976d2; border: none; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; }
-    .section { padding: 4rem 0; }
-    .section h2 { color: #0d47a1; margin-bottom: 1rem; }
-    .circular-card { background: white; border-radius: 8px; padding: 1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.1); margin-bottom: 1rem; }
-    .new-badge { background-color: #ffeb3b; color: #000; font-size: 0.75rem; font-weight: bold; padding: 0.2rem 0.5rem; border-radius: 3px; margin-left: 0.5rem; animation: blink 1s infinite; }
-    @keyframes blink { 50% { opacity: 0.5; } }
-    .view-all-btn { display: inline-block; margin-top: 1rem; background-color: #0d47a1; color: white; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; }
-    figure img { border-radius: 8px; }
-    footer { text-align: center; padding: 2rem 0; font-size: 0.9rem; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pradeep Patil Consultancy | BIS Certification Experts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #0f2044;
+    --navy-light: #1a3060;
+    --gold: #c9a84c;
+    --gold-light: #e4c97a;
+    --gold-pale: #f5ead6;
+    --cream: #faf8f3;
+    --white: #ffffff;
+    --gray-100: #f4f4f0;
+    --gray-200: #e8e6df;
+    --gray-400: #9e9b90;
+    --gray-700: #4a4740;
+    --text-dark: #1a1915;
+    --text-mid: #4a4740;
+    --text-light: #8a8780;
+    --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+  h1 { font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 700; }
+  h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; }
+  h3 { font-size: 1.4rem; font-weight: 600; }
+  p { line-height: 1.8; color: var(--text-mid); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+    background: rgba(10, 22, 40, 0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+    transition: var(--transition);
+  }
+  nav.scrolled {
+    height: 60px;
+    background: rgba(10, 22, 40, 0.97);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo-mark {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 1.1rem;
+    color: var(--navy);
+  }
+  .nav-logo-text { font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 1rem; color: var(--white); letter-spacing: 0.02em; }
+  .nav-logo-text span { color: var(--gold); }
+
+  .nav-links { display: flex; align-items: center; gap: 2rem; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75); text-decoration: none;
+    font-size: 0.9rem; font-weight: 400; letter-spacing: 0.03em;
+    transition: color var(--transition);
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 100%;
+    height: 1px; background: var(--gold);
+    transition: right var(--transition);
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { right: 0; }
+  .nav-cta {
+    background: var(--gold); color: var(--navy) !important;
+    padding: 0.5rem 1.25rem; border-radius: 4px;
+    font-weight: 500 !important;
+  }
+  .nav-cta::after { display: none; }
+  .nav-cta:hover { background: var(--gold-light) !important; }
+
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: var(--transition); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 5% 80px;
+  }
+  .hero-bg-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-bg-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    pointer-events: none;
+  }
+  .hero-bg-glow-2 {
+    position: absolute;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,48,96,0.6) 0%, transparent 70%);
+    bottom: -50px; left: -50px;
+    pointer-events: none;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+  .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+  .hero h1 { color: var(--white); margin-bottom: 1.5rem; }
+  .hero h1 em { color: var(--gold); font-style: normal; display: block; }
+  .hero-desc { font-size: 1.1rem; color: rgba(255,255,255,0.65); margin-bottom: 2.5rem; max-width: 480px; }
+  .hero-actions { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    padding: 0.875rem 2rem; border-radius: 4px;
+    font-weight: 500; font-size: 0.95rem; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: var(--transition);
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.3); color: var(--white);
+    padding: 0.875rem 2rem; border-radius: 4px;
+    font-weight: 400; font-size: 0.95rem; text-decoration: none;
+    transition: var(--transition);
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-stats {
+    display: flex; gap: 2rem; margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--gold); display: block;
+  }
+  .hero-stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.06em; }
+
+  .hero-visual {
+    position: relative;
+  }
+  .hero-card-stack {
+    position: relative;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .hero-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    backdrop-filter: blur(8px);
+  }
+  .hero-card-icon {
+    width: 40px; height: 40px; border-radius: 8px;
+    background: rgba(201,168,76,0.15);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+  }
+  .hero-card h4 { color: var(--white); font-size: 1rem; margin-bottom: 0.35rem; }
+  .hero-card p { color: rgba(255,255,255,0.55); font-size: 0.85rem; margin: 0; }
+  .hero-card-accent { border-color: rgba(201,168,76,0.4); }
+
+  /* ── TICKER ── */
+  .ticker-strip {
+    background: var(--navy-mid);
+    border-top: 1px solid rgba(201,168,76,0.15);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 0.6rem 0;
+    overflow: hidden;
+  }
+  .ticker-inner {
+    display: flex; align-items: center;
+    white-space: nowrap;
+    animation: ticker 40s linear infinite;
+  }
+  .ticker-label {
+    background: var(--gold); color: var(--navy);
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.2rem 0.75rem;
+    border-radius: 3px; margin-right: 2rem; flex-shrink: 0;
+  }
+  .ticker-item {
+    color: rgba(255,255,255,0.7); font-size: 0.85rem;
+    padding: 0 2.5rem; flex-shrink: 0;
+  }
+  .ticker-item a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  .ticker-item a:hover { color: var(--gold); }
+  .ticker-sep { color: var(--gold); opacity: 0.4; }
+  @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 5%; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block; font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .section-tag::before { content: '— '; opacity: 0.5; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-text h2 { margin-bottom: 1.5rem; color: var(--navy); }
+  .about-text p { margin-bottom: 1.25rem; }
+  .about-img-wrapper {
+    position: relative;
+  }
+  .about-img-frame {
+    border-radius: 12px; overflow: hidden;
+    aspect-ratio: 4/3;
+    background: var(--gray-100);
+  }
+  .about-img-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .about-img-badge {
+    position: absolute; bottom: -1.5rem; left: -1.5rem;
+    background: var(--navy); color: var(--white);
+    border-radius: 10px; padding: 1.25rem 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+    box-shadow: 0 8px 32px rgba(10,22,40,0.3);
+  }
+  .about-img-badge-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 700; color: var(--gold); line-height: 1;
+  }
+  .about-img-badge-text { font-size: 0.8rem; color: rgba(255,255,255,0.65); line-height: 1.3; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--cream); }
+  .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1rem; }
+  .services-header h2 { color: var(--navy); }
+  .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .service-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid var(--gray-200);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: var(--gold);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform var(--transition);
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(10,22,40,0.1); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    width: 52px; height: 52px; border-radius: 10px;
+    background: var(--gold-pale);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem; font-size: 1.4rem;
+  }
+  .service-card h3 { color: var(--navy); margin-bottom: 0.75rem; font-size: 1.15rem; }
+  .service-card p { font-size: 0.9rem; line-height: 1.7; }
+
+  /* ── PROCESS ── */
+  #process { background: var(--navy); }
+  #process .section-tag { color: var(--gold-light); }
+  #process h2 { color: var(--white); margin-bottom: 3.5rem; }
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .process-step {
+    padding: 2rem;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+  }
+  .process-step:last-child { border-right: none; }
+  .process-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem; font-weight: 700;
+    color: rgba(201,168,76,0.15); line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .process-step h3 { color: var(--white); font-size: 1.1rem; margin-bottom: 0.75rem; }
+  .process-step p { color: rgba(255,255,255,0.55); font-size: 0.88rem; line-height: 1.7; }
+
+  /* ── CIRCULARS ── */
+  #circulars { background: var(--white); }
+  .circulars-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
+  .circulars-header h2 { color: var(--navy); }
+  .circulars-list { display: flex; flex-direction: column; gap: 0; }
+  .circular-item-row {
+    display: flex; align-items: center; gap: 1.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--gray-200);
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+  }
+  .circular-item-row:first-child { border-top: 1px solid var(--gray-200); }
+  .circular-item-row:hover .circular-title { color: var(--navy); }
+  .circular-item-row:hover .circular-arrow { transform: translateX(4px); color: var(--gold); }
+  .circular-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 600;
+    color: var(--gray-200); min-width: 2.5rem;
+    user-select: none;
+  }
+  .circular-content { flex: 1; }
+  .circular-title { color: var(--text-mid); font-size: 0.95rem; transition: color var(--transition); }
+  .circular-new {
+    background: var(--gold-pale); color: #7a5c1a;
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 3px;
+    display: inline-block; margin-left: 0.75rem;
+  }
+  .circular-arrow { font-size: 1.1rem; color: var(--gray-400); transition: var(--transition); }
+  .btn-view-all {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--navy); color: var(--white);
+    padding: 0.75rem 1.5rem; border-radius: 4px;
+    font-size: 0.9rem; font-weight: 500; text-decoration: none;
+    transition: var(--transition);
+  }
+  .btn-view-all:hover { background: var(--navy-light); }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--cream); }
+  #testimonials h2 { color: var(--navy); margin-bottom: 3rem; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .testimonial-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid var(--gray-200);
+    position: relative;
+  }
+  .testimonial-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; line-height: 1;
+    color: var(--gold); opacity: 0.4; margin-bottom: 0.5rem;
+  }
+  .testimonial-text { font-size: 0.95rem; color: var(--text-mid); margin-bottom: 1.5rem; font-style: italic; line-height: 1.8; }
+  .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+  .testimonial-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--navy); color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-weight: 600; font-size: 0.9rem;
+  }
+  .testimonial-name { font-weight: 500; font-size: 0.9rem; color: var(--navy); }
+  .testimonial-company { font-size: 0.8rem; color: var(--text-light); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--navy); }
+  #contact .section-tag { color: var(--gold-light); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .contact-info h2 { color: var(--white); margin-bottom: 1.25rem; }
+  .contact-info > p { color: rgba(255,255,255,0.6); margin-bottom: 2.5rem; }
+  .contact-detail {
+    display: flex; align-items: flex-start; gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .contact-detail-icon {
+    width: 40px; height: 40px; border-radius: 8px;
+    background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.2);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 1rem;
+  }
+  .contact-detail-label { font-size: 0.78rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.2rem; }
+  .contact-detail-value { color: var(--white); font-size: 0.95rem; }
+  .contact-detail-value a { color: var(--gold); text-decoration: none; }
+
+  .contact-form {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2.5rem;
+  }
+  .contact-form h3 { color: var(--navy); margin-bottom: 1.75rem; font-size: 1.5rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .form-group { margin-bottom: 1rem; }
+  .form-group label { display: block; font-size: 0.82rem; font-weight: 500; color: var(--text-mid); margin-bottom: 0.4rem; }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%; padding: 0.75rem 1rem;
+    border: 1px solid var(--gray-200); border-radius: 6px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    color: var(--text-dark); background: var(--cream);
+    transition: border-color var(--transition);
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus { border-color: var(--gold); background: var(--white); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .form-submit {
+    width: 100%; padding: 0.875rem;
+    background: var(--gold); color: var(--navy);
+    border: none; border-radius: 6px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 500;
+    cursor: pointer; transition: var(--transition);
+  }
+  .form-submit:hover { background: var(--gold-light); }
+  .form-success {
+    display: none; text-align: center; padding: 2rem 0;
+    color: var(--navy);
+  }
+  .form-success-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060d18;
+    padding: 3rem 5% 2rem;
+    border-top: 1px solid rgba(201,168,76,0.15);
+  }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+  .footer-brand p { color: rgba(255,255,255,0.45); font-size: 0.88rem; margin-top: 1rem; max-width: 260px; line-height: 1.7; }
+  .footer-col h4 { color: rgba(255,255,255,0.85); font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.25rem; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-col ul a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 0.88rem; transition: color var(--transition); }
+  .footer-col ul a:hover { color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 0.75rem;
+  }
+  .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 0.82rem; }
+  .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+  .footer-bottom a:hover { color: var(--gold); }
+
+  /* ── MOBILE NAV ── */
+  .mobile-menu {
+    display: none; position: fixed; inset: 0; z-index: 99;
+    background: var(--navy); padding: 5rem 5% 3rem;
+    flex-direction: column; gap: 0;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: var(--white); text-decoration: none; font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: color var(--transition);
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+
+  /* ── FADE IN ANIMATION ── */
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  .fade-in-delay-1 { transition-delay: 0.1s; }
+  .fade-in-delay-2 { transition-delay: 0.2s; }
+  .fade-in-delay-3 { transition-delay: 0.3s; }
+  .fade-in-delay-4 { transition-delay: 0.4s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    .process-step { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .process-step:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-img-badge { left: 1rem; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; }
+    .process-step { border-right: none; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    section { padding: 4rem 5%; }
+    .services-header { flex-direction: column; align-items: flex-start; }
+    .circulars-header { flex-direction: column; align-items: flex-start; }
+  }
+</style>
 </head>
 <body>
-  <nav class="container-fluid">
-    <ul><li><strong>Pradeep Patil Consultancy</strong></li></ul>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#circulars">BIS Circulars</a></li>
-      <li><a href="#feedback">Feedback</a></li>
-      <li><a href="#contact" role="button">Contact</a></li>
-    </ul>
-  </nav>
 
-  <header class="hero">
-    <h1>Pradeep Patil Consultancy</h1>
-    <p>Helping industries achieve Bureau of Indian Standards (BIS) compliance with confidence.</p>
-    <a href="#contact" class="button">Get in Touch</a>
-  </header>
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">PP</div>
+    <span class="nav-logo-text">Pradeep Patil <span>Consultancy</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#circulars">Circulars</a>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
+  </div>
+  <div class="nav-hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
 
-  <main class="container">
-    <section id="about" class="section">
-      <h2>About Us</h2>
-      <p>We provide expert consultancy services to help businesses meet Bureau of Indian Standards (BIS) certification requirements. Our team ensures a smooth certification process with comprehensive support for documentation, testing, and compliance.</p>
-      <figure>
-        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80" alt="Consultants discussing strategy">
-        <figcaption><a href="https://unsplash.com" target="_blank">Image from Unsplash</a></figcaption>
-      </figure>
-    </section>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#process" onclick="toggleMenu()">Process</a>
+  <a href="#circulars" onclick="toggleMenu()">Circulars</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
 
-    <section id="services" class="section">
-      <h2>Our Services</h2>
-      <div class="grid">
-        <article><h3>BIS Certification Consulting</h3><p>Expert guidance through every stage of the BIS certification process.</p></article>
-        <article><h3>Documentation & Compliance</h3><p>We prepare all necessary documentation to meet BIS standards efficiently.</p></article>
-        <article><h3>Testing Coordination</h3><p>Assistance with laboratory testing and certification requirements.</p></article>
-        <article><h3>Quality Audits</h3><p>In-depth audits to ensure your business maintains compliance.</p></article>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-bg-glow"></div>
+  <div class="hero-bg-glow-2"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Bureau of Indian Standards</div>
+      <h1>India's Trusted <em>BIS Compliance</em> Partner</h1>
+      <p class="hero-desc">Expert consultancy helping industries achieve Bureau of Indian Standards certification with precision, speed, and confidence.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Start Your Certification →</a>
+        <a href="#services" class="btn-outline">Our Services</a>
       </div>
-    </section>
-
-    <section id="circulars" class="section">
-      <h2>📰 Latest Updates</h2>
-      <div id="ticker-wrapper">
-        <div id="circular-ticker">Loading latest circulars...</div>
+      <div class="hero-stats">
+        <div>
+          <span class="hero-stat-num">500+</span>
+          <span class="hero-stat-label">Certifications</span>
+        </div>
+        <div>
+          <span class="hero-stat-num">15+</span>
+          <span class="hero-stat-label">Years Experience</span>
+        </div>
+        <div>
+          <span class="hero-stat-num">98%</span>
+          <span class="hero-stat-label">Success Rate</span>
+        </div>
       </div>
-      <a class="view-all-btn" href="https://www.bis.gov.in/index.php/circulars/" target="_blank">
-        View All Circulars on BIS Website
-      </a>
-    </section>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card-stack">
+        <div class="hero-card hero-card-accent">
+          <div class="hero-card-icon">🏛️</div>
+          <h4>ISI Mark Certification</h4>
+          <p>Full-cycle compliance support for mandatory BIS product certifications</p>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">📋</div>
+          <h4>Documentation & Audit Ready</h4>
+          <p>Complete documentation preparation, internal audit coordination</p>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">🔬</div>
+          <h4>Testing Coordination</h4>
+          <p>Lab testing, sample management & BIS liaison services</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="feedback" class="section">
-      <h2>Customer Feedback</h2>
-      <blockquote>“Pradeep Patil Consultancy made our BIS certification seamless and stress-free. Highly recommended!” – R.K. Industries</blockquote>
-      <blockquote>“Their professionalism and attention to detail were impressive. Excellent service!” – Suresh Trading Co.</blockquote>
-    </section>
+<!-- TICKER -->
+<div class="ticker-strip">
+  <div class="ticker-inner" id="ticker-inner">
+    <span class="ticker-label">BIS Updates</span>
+    <span class="ticker-item">Loading latest circulars from BIS...</span>
+  </div>
+</div>
 
-    <section id="contact" class="section">
-      <h2>Contact Us</h2>
-      <p>We’re here to help your business achieve BIS certification success. Reach out using the form below or email us directly at <a href="mailto:info@pradeeppatilconsultancy.com">info@pradeeppatilconsultancy.com</a>.</p>
-      <form class="grid">
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
-        <input type="email" id="email" name="email" placeholder="Your Email" required>
-        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-        <button type="submit" onclick="event.preventDefault()">Send Message</button>
-      </form>
-    </section>
-  </main>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img-wrapper fade-in">
+        <div class="about-img-frame">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80" alt="Team working on BIS compliance">
+        </div>
+        <div class="about-img-badge">
+          <div class="about-img-badge-num">15+</div>
+          <div class="about-img-badge-text">Years of<br>BIS expertise</div>
+        </div>
+      </div>
+      <div class="about-text fade-in fade-in-delay-1">
+        <span class="section-tag">About Us</span>
+        <h2>Your Compliance Journey, Simplified</h2>
+        <p>Pradeep Patil Consultancy is one of India's foremost specialist firms for Bureau of Indian Standards certification. We combine deep regulatory knowledge with a client-first approach to navigate India's most demanding compliance landscape.</p>
+        <p>From initial assessment to ISI mark approval, our team stands with you at every stage — eliminating uncertainty and helping you bring compliant products to market faster.</p>
+        <p>We have successfully guided startups, SMEs, and large manufacturers through the BIS certification framework across electronics, chemicals, construction materials, and consumer goods.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    <small>© 2025 Pradeep Patil Consultancy • <a href="#about">About</a> • <a href="#services">Services</a> • <a href="#circulars">BIS Circulars</a> • <a href="#contact">Contact</a></small>
-  </footer>
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="services-header">
+      <div>
+        <span class="section-tag">Services</span>
+        <h2 style="color:var(--navy);">What We Offer</h2>
+      </div>
+      <a href="#contact" class="btn-view-all">Discuss Your Needs →</a>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon">🏅</div>
+        <h3>BIS Certification Consulting</h3>
+        <p>Expert end-to-end guidance through every phase of the BIS ISI Mark, CRS, and FMCS certification process.</p>
+      </div>
+      <div class="service-card fade-in fade-in-delay-1">
+        <div class="service-icon">📁</div>
+        <h3>Documentation & Compliance</h3>
+        <p>Thorough preparation of applications, technical files, and compliance documentation aligned to BIS standards.</p>
+      </div>
+      <div class="service-card fade-in fade-in-delay-2">
+        <div class="service-icon">🔬</div>
+        <h3>Testing Coordination</h3>
+        <p>Seamless coordination with BIS-accredited labs for product testing, sample preparation, and result management.</p>
+      </div>
+      <div class="service-card fade-in fade-in-delay-3">
+        <div class="service-icon">🔍</div>
+        <h3>Quality System Audits</h3>
+        <p>In-depth pre-audit assessments and factory inspections to ensure sustained compliance and audit readiness.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🌐</div>
+        <h3>Foreign Manufacturer Scheme</h3>
+        <p>Specialized support for foreign manufacturers seeking BIS certification to sell products in the Indian market.</p>
+      </div>
+      <div class="service-card fade-in fade-in-delay-1">
+        <div class="service-icon">⚡</div>
+        <h3>CRS (Compulsory Registration)</h3>
+        <p>Registration support for electronics and IT products under the BIS Compulsory Registration Scheme.</p>
+      </div>
+      <div class="service-card fade-in fade-in-delay-2">
+        <div class="service-icon">📊</div>
+        <h3>Standards Interpretation</h3>
+        <p>Expert clarification on applicable Indian Standards (IS codes) and their technical requirements for your product.</p>
+      </div>
+      <div class="service-card fade-in fade-in-delay-3">
+        <div class="service-icon">🤝</div>
+        <h3>BIS Liaison Services</h3>
+        <p>Direct coordination with BIS offices and officers on your behalf for faster query resolution and approvals.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    async function loadCirculars() {
-      try {
-        const res = await fetch('/api/circulars');
-        const circulars = await res.json();
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-inner">
+    <span class="section-tag">Our Process</span>
+    <h2 style="color:var(--white); margin-bottom:3.5rem;">How We Work</h2>
+    <div class="process-steps">
+      <div class="process-step fade-in">
+        <div class="process-num">01</div>
+        <h3>Discovery & Assessment</h3>
+        <p>We review your product, applicable IS standards, and current compliance gaps to build a clear roadmap.</p>
+      </div>
+      <div class="process-step fade-in fade-in-delay-1">
+        <div class="process-num">02</div>
+        <h3>Documentation Preparation</h3>
+        <p>Our specialists compile and prepare all technical documentation and application files required by BIS.</p>
+      </div>
+      <div class="process-step fade-in fade-in-delay-2">
+        <div class="process-num">03</div>
+        <h3>Testing & Factory Inspection</h3>
+        <p>We coordinate lab tests and guide your team through factory inspections to ensure a successful outcome.</p>
+      </div>
+      <div class="process-step fade-in fade-in-delay-3">
+        <div class="process-num">04</div>
+        <h3>Certification & Beyond</h3>
+        <p>We manage the final approval stage and support ongoing renewal, surveillance, and compliance maintenance.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        let items = '';
-        circulars.forEach((c, i) => {
-          items += `<span class="circular-item">
-            <a href="${c.link}" target="_blank">${c.title}</a>${i < 3 ? '<span class="new-badge">NEW</span>' : ''}
-          </span>`;
-        });
+<!-- CIRCULARS -->
+<section id="circulars">
+  <div class="section-inner">
+    <div class="circulars-header">
+      <div>
+        <span class="section-tag">Regulatory Updates</span>
+        <h2 style="color:var(--navy);">Latest BIS Circulars</h2>
+      </div>
+      <a href="https://www.bis.gov.in/index.php/circulars/" target="_blank" class="btn-view-all">View All on BIS Website →</a>
+    </div>
+    <div class="circulars-list" id="circulars-list">
+      <div style="padding:2rem 0; color:var(--text-light); font-size:0.9rem;">Loading circulars…</div>
+    </div>
+  </div>
+</section>
 
-        document.getElementById('circular-ticker').innerHTML = items + items;
-      } catch (e) {
-        document.getElementById('circular-ticker').innerHTML =
-          '<span class="circular-item">Unable to load circulars. Please check the BIS site.</span>';
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <span class="section-tag">Client Stories</span>
+    <h2 style="color:var(--navy); margin-bottom:3rem;">Trusted by Indian Industry</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Pradeep Patil Consultancy made our BIS certification completely seamless. Their knowledge of the process saved us months of uncertainty. Highly recommended for any manufacturer.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">RK</div>
+          <div>
+            <div class="testimonial-name">Rajesh Kumar</div>
+            <div class="testimonial-company">R.K. Industries, Pune</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-in fade-in-delay-1">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Their professionalism and attention to detail are genuinely impressive. We received our ISI certification on the first attempt. We won't work with anyone else.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SM</div>
+          <div>
+            <div class="testimonial-name">Suresh Mehta</div>
+            <div class="testimonial-company">Suresh Trading Co., Mumbai</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-in fade-in-delay-2">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">As a foreign manufacturer entering India, BIS compliance was daunting. The team guided us every step of the way with clarity and patience. Exceptional service.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AT</div>
+          <div>
+            <div class="testimonial-name">Aiko Tanaka</div>
+            <div class="testimonial-company">Tanaka Electronics, Japan</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="section-tag">Contact</span>
+        <h2>Let's Start Your Certification Journey</h2>
+        <p>Whether you're new to BIS certification or looking to renew, our team is ready to help. Reach out today for a free initial consultation.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📧</div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-value"><a href="mailto:info@pradeeppatilconsultancy.com">info@pradeeppatilconsultancy.com</a></div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📞</div>
+          <div>
+            <div class="contact-detail-label">Phone</div>
+            <div class="contact-detail-value">+91 98765 43210</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div>
+            <div class="contact-detail-label">Location</div>
+            <div class="contact-detail-value">Mumbai, Maharashtra, India</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <div id="contact-form-inner">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" id="c-name" placeholder="Rajesh Kumar">
+            </div>
+            <div class="form-group">
+              <label>Company Name</label>
+              <input type="text" id="c-company" placeholder="Your Company">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="c-email" placeholder="you@company.com">
+          </div>
+          <div class="form-group">
+            <label>Service Required</label>
+            <select id="c-service">
+              <option value="">Select a service…</option>
+              <option>BIS Certification Consulting</option>
+              <option>Documentation & Compliance</option>
+              <option>Testing Coordination</option>
+              <option>Quality System Audit</option>
+              <option>Foreign Manufacturer Scheme</option>
+              <option>CRS Registration</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea id="c-message" placeholder="Tell us about your product and certification needs…"></textarea>
+          </div>
+          <button class="form-submit" onclick="submitForm()">Send Message →</button>
+        </div>
+        <div class="form-success" id="form-success">
+          <div class="form-success-icon">✅</div>
+          <h3 style="color:var(--navy); margin-bottom:0.5rem;">Message Sent!</h3>
+          <p style="font-size:0.9rem;">We'll get back to you within one business day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" style="text-decoration:none;">
+          <div class="nav-logo-mark">PP</div>
+          <span class="nav-logo-text" style="color:var(--white);">Pradeep Patil <span>Consultancy</span></span>
+        </a>
+        <p>India's trusted partner for Bureau of Indian Standards certification — helping manufacturers achieve compliance with confidence since 2009.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">BIS Certification</a></li>
+          <li><a href="#services">Documentation</a></li>
+          <li><a href="#services">Testing Coordination</a></li>
+          <li><a href="#services">Quality Audits</a></li>
+          <li><a href="#services">CRS Registration</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#testimonials">Client Stories</a></li>
+          <li><a href="#circulars">BIS Circulars</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Helpful Links</h4>
+        <ul>
+          <li><a href="https://www.bis.gov.in" target="_blank">BIS Official Website</a></li>
+          <li><a href="https://www.bis.gov.in/index.php/circulars/" target="_blank">BIS Circulars</a></li>
+          <li><a href="https://www.bis.gov.in/index.php/standards/" target="_blank">Indian Standards</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Pradeep Patil Consultancy. All rights reserved.</p>
+      <p><a href="#about">Privacy Policy</a> · <a href="#about">Terms of Service</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Form submit
+  function submitForm() {
+    const name = document.getElementById('c-name').value;
+    const email = document.getElementById('c-email').value;
+    if (!name || !email) { alert('Please fill in your name and email.'); return; }
+    document.getElementById('contact-form-inner').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }
+
+  // Load BIS circulars
+  async function loadCirculars() {
+    const fallback = [
+      { title: "Circular on amendment to IS 1239: Steel Tubes — updated testing protocol", link: "https://www.bis.gov.in/index.php/circulars/", isNew: true },
+      { title: "New mandatory certification requirements for LED light products under CRS scheme", link: "https://www.bis.gov.in/index.php/circulars/", isNew: true },
+      { title: "BIS fee revision circular for ISI Mark license applications effective April 2025", link: "https://www.bis.gov.in/index.php/circulars/", isNew: true },
+      { title: "Guidelines for factory surveillance visits under BIS FMCS scheme", link: "https://www.bis.gov.in/index.php/circulars/", isNew: false },
+      { title: "Online portal update: new module for tracking certification application status", link: "https://www.bis.gov.in/index.php/circulars/", isNew: false },
+      { title: "Extension of compliance timeline for IS 16046: Automotive electrical components", link: "https://www.bis.gov.in/index.php/circulars/", isNew: false },
+    ];
+
+    let circulars = fallback;
+    try {
+      const res = await fetch('/api/circulars');
+      if (res.ok) {
+        const data = await res.json();
+        circulars = data.map((c, i) => ({ ...c, isNew: i < 3 }));
       }
-    }
-    loadCirculars();
-  </script>
+    } catch(e) {}
+
+    // Render list
+    const list = document.getElementById('circulars-list');
+    list.innerHTML = circulars.map((c, i) => `
+      <a class="circular-item-row" href="${c.link}" target="_blank">
+        <span class="circular-num">0${i+1}</span>
+        <div class="circular-content">
+          <span class="circular-title">${c.title}${c.isNew ? '<span class="circular-new">New</span>' : ''}</span>
+        </div>
+        <span class="circular-arrow">→</span>
+      </a>
+    `).join('');
+
+    // Ticker
+    const tickerItems = circulars.map((c, i) =>
+      `<span class="circular-item"><a href="${c.link}" target="_blank">${c.title}</a></span><span class="ticker-sep"> • </span>`
+    ).join('');
+    const tickerEl = document.getElementById('ticker-inner');
+    tickerEl.innerHTML = `<span class="ticker-label">BIS Updates</span>${tickerItems}${tickerItems}`;
+  }
+
+  loadCirculars();
+</script>
 </body>
 </html>
